@@ -1,0 +1,95 @@
+[meta title:"IS445 Week12" description:"Short description of your project" /]
+
+[Header
+  fullWidth:true
+  title:"IS445 Week12"
+  subtitle:"Welcome to IS445 Assignment 12"
+  author:"Attraversalo"
+  authorLink:"https://idyll-lang.org"
+  date:"Apr 13, 2022"
+  background:"url(static/2.png)"
+  color:"#ffffff"
+   /]
+
+[var name:"x" value:0 /]
+
+
+## Introduction
+
+This is a homework exercise for IS445 2022 Spring Week12.
+I just want to try it and test if I can use some fuctions.
+
+
+##MotorCycles
+Yamaha launched its latest concept motorcycle, the Motoroid, in 2017.
+This motorcycle is very futuristic.
+
+
+[Float position:"right"]
+[img
+  src:'static/YJM.png'
+/]
+[/Float]
+
+[Float position:"left"]
+[img
+  src:'static/YMH.jpg'
+/]
+[/Float]
+
+
+
+##Dataset Description
+I found the dataset I needed in this link: https://vincentarelbundock.github.io/Rdatasets/datasets.html
+and simply tested whether I could successfully import the dataset using IDYLL.
+
+
+Here's a look at how the number of motorcycles changes with the year
+dataset
+The dataset has two columns, year and motorcycle count.
+The data set does not need to be cleaned in advance, and the data can be directly used for application.
+
+
+I first created a list with this dataset, shown below.
+
+[data name:"MotorCycles" source:"MotorCycles2.csv" /]
+[Table data:MotorCycles /]
+
+Next, I need to build a line chart.
+
+[Float position:"left"]
+[IdyllVegaLite data:MotorCycles spec:`{
+  mark: "line",
+  encoding: {
+    x: {
+      field: "time",
+      type: "temporal",
+      axis: {title: "Year", format:"%Y"},
+    },
+    y: {
+      field: "value",
+      type: "quantitative",
+      axis: {title: "Number"},
+      scale: { domain: [50, 650] }
+    }
+  }
+}` /]
+Because the data set mainly conveys the relationship between the year and the number of motorcycles,
+I use a line chart to represent this trend.
+[/Float]
+
+
+
+[Float position:"right"]
+[var name:"Year" value:2012 /]
+[Range min:1946 max:2012 value:Year /]
+[Display value:Year /]
+####Useless little slider
+[/Float]
+
+
+[Fixed]
+  [Chart type:"scatter" data:dynamicData /]
+
+  [caption]###widget test[/caption]
+[/Fixed]

@@ -1,0 +1,28 @@
+{
+  "name": "is445-week12",
+  "version": "1.0.0",
+  "license": "MIT",
+  "idyll": {
+    "theme": "idyll",
+    "layout": "blog",
+    "css": "styles.css",
+    "authorView": false
+  },
+  "type": "module",
+  "scripts": {
+    "start": "idyll",
+    "build": "idyll build",
+    "publish": "idyll publish"
+  },
+  "dependencies": {
+    "d3": "7",
+    "d3-selection": "^2.0.0",
+    "d3-transition": "^2.0.0",
+    "idyll": "6.0.0-alpha.4",
+    "idyll-d3-component": "^2.0.0",
+    "idyll-vega-lite": "^3.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}
